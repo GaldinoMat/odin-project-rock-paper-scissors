@@ -46,11 +46,17 @@
             <p>Your score: <strong data-player-score>0</strong></p>
           </div>
         </div>
+        <div class="selection-disclaimer" id="disclaimer-section">
+          <h2>
+            You choose <span id="player-disclaimer"></span>! The computer choose
+            <span id="computer-disclaimer"></span>!
+          </h2>
+        </div>
         <div class="pc-selection choices">
           <div class="selection-container">
-            <button class="choice-img rock">✊</button>
-            <button class="choice-img paper">🖐</button>
-            <button class="choice-img scissors">✌️</button>
+            <button class="choice-img rock pc-choice">✊</button>
+            <button class="choice-img paper pc-choice">🖐</button>
+            <button class="choice-img scissors pc-choice">✌️</button>
           </div>
 
           <div id="pc-score" class="score">
@@ -59,9 +65,7 @@
         </div>
       </div>
       <div class="winner-announcement" id="winner-page">
-        <h1>
-          <span data-winner>Somebody</span> WINS!
-        </h1>
+        <h1><span data-winner>Somebody</span> WINS!</h1>
       </div>
     </main>
     <script src="app.js"></script>

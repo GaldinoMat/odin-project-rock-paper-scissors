@@ -81,10 +81,11 @@ button {
   height: 100%;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1.2fr 0.4fr 1.2fr;
   gap: 0px 0px;
   grid-template-areas:
     "player-selection"
+    "selection-disclaimer"
     "pc-selection";
   margin: auto;
   opacity: 0;
@@ -93,6 +94,13 @@ button {
 
 .player-selection {
   grid-area: player-selection;
+}
+
+.selection-disclaimer {
+  grid-area: selection-disclaimer;
+  font-size: 1.25rem;
+  margin: 0 auto;
+  visibility: hidden;
 }
 
 .pc-selection {
@@ -126,7 +134,12 @@ button {
   transition: transform 0.1s;
 }
 
-.selection:hover {
+.pc-choice {
+  transition: transform 0.1s;
+}
+
+.selection:hover,
+.selected {
   transform: scale(1.15);
 }
 
@@ -143,8 +156,8 @@ button {
 }
 
 .score {
-  font-size: 2rem;
-  margin-top: 2.5rem;
+  font-size: 1.625rem;
+  margin-top: 1.875rem;
 }
 
 .winner-announcement {
@@ -157,6 +170,10 @@ button {
   opacity: 1;
   pointer-events: auto;
   animation: fadeIn 2s;
+}
+
+.disclaimer-visible {
+  visibility: visible;
 }
 
 @keyframes fadeIn {

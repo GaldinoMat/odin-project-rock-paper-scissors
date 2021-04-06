@@ -2,6 +2,8 @@ const selectionButtons = document.querySelectorAll("[data-selection]");
 const playerScore = document.querySelector("[data-player-score]");
 const computerScore = document.querySelector("[data-computer-score]");
 
+const pcChoices = document.querySelectorAll(".pc-choice");
+
 const roundButtons = document.querySelectorAll("[data-rounds]");
 
 const starterPage = document.getElementById("starter-page");
@@ -10,12 +12,18 @@ const winnerPage = document.getElementById("winner-page");
 
 const winner = document.querySelector("[data-winner]");
 
+const disclaimerSection = document.getElementById("disclaimer-section");
+const playerDisclaimer = document.getElementById("player-disclaimer");
+const computerDisclaimer = document.getElementById("computer-disclaimer");
+
 let totalRounds = 0;
 let gameRounds = 0;
 
 let playerWins = false;
 let pcWins = false;
 let gameOver = true;
+
+let pastComputerChoice = 0;
 
 const possibleChoices = [
   {
@@ -74,7 +82,7 @@ function handleGameState() {
 
       playerScore.innerText = 0;
       computerScore.innerText = 0;
-    }, 5000);
+    }, 4000);
   }
 }
 
@@ -88,13 +96,24 @@ function toggleVisibility(...divs) {
 function selectSymbol(selection) {
   const computerSelection = pcSelection();
 
+  disclaimerSection.classList.add("disclaimer-visible");
+
+  playerDisclaimer.innerText = selection.name;
+  computerDisclaimer.innerText = computerSelection.name;
+
   determineWinner(selection, computerSelection)
     ? addScore(playerScore)
     : addScore(computerScore);
 }
 
 function pcSelection() {
+  if (pastComputerChoice !== 0) pastComputerChoice.classList.toggle("selected");
+
   const index = Math.floor(Math.random() * possibleChoices.length);
+  pastComputerChoice = pcChoices[index];
+
+  pcChoices[index].classList.toggle("selected");
+
   return possibleChoices[index];
 }
 
