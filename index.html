@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300;400;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Rock Paper Scissors!</title>
+  </head>
+  <body>
+    <main class="game-container">
+      <div class="presentation-page visible" id="starter-page">
+        <h1>LET'S PLAY ROCK, PAPER, SCISSORS!</h1>
+        <p>Please select one of the avaiable modes, or engage in free play!</p>
+
+        <div class="game-modes">
+          <button data-rounds="10000">Free play</button>
+          <button data-rounds="3">Best of three</button>
+          <button data-rounds="5">Best of five</button>
+        </div>
+      </div>
+      <div class="game" id="game-page">
+        <div class="player-selection choices">
+          <div class="selection-container">
+            <button class="choice-img selection rock" data-selection="rock">
+              ✊
+            </button>
+            <button class="choice-img selection paper" data-selection="paper">
+              🖐
+            </button>
+            <button
+              class="choice-img selection scissors"
+              data-selection="scissors"
+            >
+              ✌️
+            </button>
+          </div>
+          <div id="player-score" class="score">
+            <p>Your score: <strong data-player-score>0</strong></p>
+          </div>
+        </div>
+        <div class="pc-selection choices">
+          <div class="selection-container">
+            <button class="choice-img rock">✊</button>
+            <button class="choice-img paper">🖐</button>
+            <button class="choice-img scissors">✌️</button>
+          </div>
+
+          <div id="pc-score" class="score">
+            <p>Computer's score: <strong data-computer-score>0</strong></p>
+          </div>
+        </div>
+      </div>
+      <div class="winner-announcement" id="winner-page">
+        <h1>
+          <span data-winner>Somebody</span> WINS!
+        </h1>
+      </div>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
